@@ -64,36 +64,28 @@ The most important requirements of our code base are `pytorch == 1.0.1` and `ten
 
 ### Install Custom Dependencies
 
-Besides pytorch, our code is mainly based on [ParlAI](https://github.com/facebookresearch/ParlAI) and [Huggingface's transformers](https://github.com/huggingface/transformers) (pytorch-pretrained-bert v0.6.2) library. As they are under active development, for the purpose to reproduce our results, we provide two custom repos to install them. It is worth noting that we also modify a little on Huggingface's code to achieve the auxiliary task `Next Utterance Prediction` (See Section 3.1 in our paper). Assuming you current working directory is `./`, you can run the following script to install them:
+Besides pytorch, our code is mainly based on [ParlAI](https://github.com/facebookresearch/ParlAI) and [Huggingface's transformers](https://github.com/huggingface/transformers) (pytorch-pretrained-bert v0.6.2) library. Install ParlAI and transformers from huggingface. Assuming you current working directory is `./`, you can run the following script to install them:
 
 ```bash
-cd ..
-git clone https://github.com/SivilTaram/transformers.git
-cd transformers
-python setup.py install
-cd ..
-git clone https://github.com/SivilTaram/ParlAI.git
-cd ParlAI
-python setup.py install
 cd ..
 cd Persona-Dialogue-Generation
 ```
 
 ## Training
 
-We provide three files to train `Transmitter`, `Receiver` and `PSquare` (details can be found in our paper). And the corresponding training scripts and commands are as below.
+We provide three files to train `Transmitter`, `Receiver` and `PSquare` (details can be found in the paper). And the corresponding training scripts and commands are as below.
 
 ### Training Transmitter
 
 ![transmitter_model](misc/transmitter_model.svg)
 
-The transmitter is based OpenAI's GPT model. The default hyper-parameters are expected to reproduce our paper results (if not, please open an issue or contact me via email). Therefore, you could use the following command to train a transmitter. The script will automatically download the PersonaChat dataset into the `./data/ConvAI2` folder. Note that we use the `train_self_(original|revised).txt` to train Transmitter.
+The transmitter is based OpenAI's GPT model. The default hyper-parameters are expected to reproduce the paper results. Therefore, you could use the following command to train a transmitter. The script will automatically download the PersonaChat dataset into the `./data/ConvAI2` folder. Note that we use the `train_self_(original|revised).txt` to train Transmitter.
 
 ```python
 python train_transmitter.py
 ```
 
-If you want to train our model on your own collected data, please follow the format of PersonaChat to update the file `train_self_(original|revised).txt`. One example is as following:
+If you want to train the model on your own collected data, please follow the format of PersonaChat to update the file `train_self_(original|revised).txt`. One example is as following:
 ```
 1 your persona: i like to remodel homes.
 2 your persona: i like to go hunting.
@@ -181,13 +173,7 @@ We will first thank for the [PersonaChat](https://arxiv.org/pdf/1801.07243.pdf) 
 
 The `parlai` module is modified from [ParlAI](https://github.com/facebookresearch/ParlAI). Thanks them for their huge contributions on developing such a great conversational platform (*Attention: usage on this module follows its open source License*) ! Also many thanks for Huggingface's transformer library! 
 
-## Contact
-
-You could reach me via my email: qian dot liu at buaa dot edu dot cn. Or just feel free to open an issue :)
-
-## Citation
-
-Please consider citing our paper if it is helpful to you :)
+## Reference
 
 ```bib
 @inproceedings{liu-etal-2020-personachat,
