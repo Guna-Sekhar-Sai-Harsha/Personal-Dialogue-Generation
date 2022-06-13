@@ -1,12 +1,10 @@
 # Persona-Dialogue-Generation <img src="https://pytorch.org/assets/images/logo-dark.svg" width = "90" align=center />
 
 
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/you-impress-me-dialogue-generation-via-mutual/dialogue-generation-on-persona-chat)](https://paperswithcode.com/sota/dialogue-generation-on-persona-chat?p=you-impress-me-dialogue-generation-via-mutual)  
 
 
 
-
-This is the official code for our ACL 2020 paper [You Impress Me: Dialogue Generation via Mutual Persona Perception](https://arxiv.org/pdf/2004.05388.pdf).
+This is the  repository for implementation of ACL 2020 paper [You Impress Me: Dialogue Generation via Mutual Persona Perception](https://arxiv.org/pdf/2004.05388.pdf). The goal was to replicate the results obtained by the authors of the paper.
 
 ## Task & Experiments
 
@@ -33,7 +31,7 @@ We conduct experiments on [PersonaChat](http://convai.io/). And the main results
 
 ![model_framework](misc/model_framework.svg)
 
-In this paper, we propose a a transmitter-receiver based framework with the aim of explicitly modelling **Persona understanding**, in other words, **Mutual Persona Perception**. 
+In this paper, the authors propose a a transmitter-receiver based framework with the aim of explicitly modelling **Persona understanding**, in other words, **Mutual Persona Perception**. 
 
 It is based on the following motivation: the two interlocutors foster understanding either by raising persona-related topics, `Seen any good movies lately?`, or by revealing their own personas through answering questions, `I don't watch movies more of a writer.`. The efforts to build understanding keep the conversation flowing. 
 
@@ -66,7 +64,7 @@ The most important requirements of our code base are `pytorch == 1.0.1` and `ten
 
 ### Install Custom Dependencies
 
-Besides pytorch, our code is mainly based on [ParlAI](https://github.com/facebookresearch/ParlAI) and [Huggingface's transformers](https://github.com/huggingface/transformers) (pytorch-pretrained-bert v0.6.2) library. As they are under active development, for the purpose to reproduce our results, we provide two custom repos to install them. It is worth noting that we also modify a little on Huggingface's code to achieve the auxiliary task `Next Utterance Prediction` (See Section 3.1 in our paper), and more details on changes could be seen [here](https://github.com/SivilTaram/transformers/commit/e1e718496c32c0d99291c0b890fd4ae6365191ba). Assuming you current working directory is `./`, you can run the following script to install them:
+Besides pytorch, our code is mainly based on [ParlAI](https://github.com/facebookresearch/ParlAI) and [Huggingface's transformers](https://github.com/huggingface/transformers) (pytorch-pretrained-bert v0.6.2) library. As they are under active development, for the purpose to reproduce our results, we provide two custom repos to install them. It is worth noting that we also modify a little on Huggingface's code to achieve the auxiliary task `Next Utterance Prediction` (See Section 3.1 in our paper). Assuming you current working directory is `./`, you can run the following script to install them:
 
 ```bash
 cd ..
